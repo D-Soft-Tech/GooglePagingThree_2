@@ -35,7 +35,7 @@
         android:ellipsize="end"
         android:textColor="@color/white"
         android:textStyle="bold"
-        app:drawableStartCompact="@drawable/ic_baseline_person_24"
+        android:drawableStart="@drawable/ic_baseline_person_24"
         android:layout_marginStart="10dp"
         tools:text="TextView"
         android:gravity="center_vertical"
