@@ -10,6 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.example.masteringpagingthree_2.R
 import com.example.masteringpagingthree_2.databinding.FragmentGalleryBinding
+import com.example.masteringpagingthree_2.ui.adapters.RvLoadStateAdapter
+import com.example.masteringpagingthree_2.ui.adapters.RvLoadStateAdapterFactory
 import com.example.masteringpagingthree_2.ui.adapters.UnsplashPhotoAdapters
 import com.example.masteringpagingthree_2.ui.viewModel.AppViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,6 +21,9 @@ import javax.inject.Inject
 class GalleryFragment @Inject constructor() : Fragment() {
     @Inject
     lateinit var rvAdapter: UnsplashPhotoAdapters
+    @Inject
+    lateinit var rvLoadStateAdapterFactory: RvLoadStateAdapterFactory
+    private lateinit var rvLoadStateAapter: RvLoadStateAdapter
     private val viewModel: AppViewModel by viewModels()
     private lateinit var binding: FragmentGalleryBinding
     private lateinit var rv: RecyclerView
@@ -47,7 +52,17 @@ class GalleryFragment @Inject constructor() : Fragment() {
         with(binding) {
             rv = recyclerView
             rv.setHasFixedSize(true)
-            rv.adapter = rvAdapter
+            rv.adapter = rvAdapter.withLoadStateHeaderAndFooter(
+                header = createRvLoadStateAdapter(),
+                footer = createRvLoadStateAdapter()
+            )
         }
+    }
+
+    private fun createRvLoadStateAdapter(): RvLoadStateAdapter {
+        rvLoadStateAapter = rvLoadStateAdapterFactory.createRvLoadStateAdapter {
+            rvAdapter.retry()
+        }
+        return rvLoadStateAapter
     }
 }

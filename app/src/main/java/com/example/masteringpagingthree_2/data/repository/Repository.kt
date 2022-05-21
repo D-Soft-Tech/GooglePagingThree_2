@@ -17,8 +17,8 @@ class Repository @Inject constructor() {
     fun getSearchResults(query: String) =
         Pager(
             config = PagingConfig(
-                pageSize = 20,
-                maxSize = 200,
+                pageSize = 30,
+                maxSize = 100,
                 enablePlaceholders = false
             ),
             pagingSourceFactory = {

@@ -31,10 +31,6 @@ class UnsplashPhotoAdapters @Inject constructor() :
             oldItem == newItem
     }
 
-    override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) {
-        holder.bind(getItem(position)!!)
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoViewHolder {
         val inflater = UnsplashPhotoItemBinding.inflate(
             LayoutInflater.from(parent.context),
@@ -42,5 +38,9 @@ class UnsplashPhotoAdapters @Inject constructor() :
             false
         )
         return PhotoViewHolder(inflater)
+    }
+
+    override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) {
+        holder.bind(getItem(position)!!)
     }
 }
