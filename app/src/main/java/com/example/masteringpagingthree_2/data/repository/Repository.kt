@@ -18,7 +18,7 @@ class Repository @Inject constructor() {
         Pager(
             config = PagingConfig(
                 pageSize = 20,
-                maxSize = 100,
+                maxSize = 200,
                 enablePlaceholders = false
             ),
             pagingSourceFactory = {
