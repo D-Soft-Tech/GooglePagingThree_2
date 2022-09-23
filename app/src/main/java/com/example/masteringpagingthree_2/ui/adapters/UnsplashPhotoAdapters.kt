@@ -1,4 +1,4 @@
-package com.example.masteringpagingthree_2.ui.adapters
+package com.example.masteringpagingthree_2.ui.adapters // ktlint-disable package-name
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

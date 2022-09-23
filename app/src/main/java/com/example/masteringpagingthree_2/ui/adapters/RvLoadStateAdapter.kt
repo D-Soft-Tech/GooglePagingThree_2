@@ -1,4 +1,4 @@
-package com.example.masteringpagingthree_2.ui.adapters
+package com.example.masteringpagingthree_2.ui.adapters // ktlint-disable package-name
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -27,7 +27,7 @@ class RvLoadStateAdapter @AssistedInject constructor(@Assisted private val callB
         fun bind(currentLoadState: LoadState) {
             binding.apply {
                 progressBar2.isVisible = currentLoadState is LoadState.Loading
-                retryBtn.isVisible = currentLoadState !is LoadState.Loading
+                retryBtn.isVisible = currentLoadState !is LoadState.Loading && currentLoadState !is LoadState.NotLoading
                 textView2.isVisible = currentLoadState !is LoadState.Loading
                 executePendingBindings()
             }

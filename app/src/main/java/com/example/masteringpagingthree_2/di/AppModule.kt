@@ -1,9 +1,13 @@
-package com.example.masteringpagingthree_2.di
+package com.example.masteringpagingthree_2.di // ktlint-disable package-name
 
 import android.content.Context
+import androidx.room.Room
 import com.example.masteringpagingthree_2.BuildConfig
+import com.example.masteringpagingthree_2.data.localDb.UnsplashLocalDbDao
+import com.example.masteringpagingthree_2.data.localDb.UnsplashRoomDb
 import com.example.masteringpagingthree_2.data.remote.apiService.ApiService
 import com.example.masteringpagingthree_2.util.AppConstants.BASE_URL
+import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,6 +24,10 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
+
+    @Singleton
+    @Provides
+    fun providesGson(): Gson = Gson()
 
     @Singleton
     @Provides
@@ -65,4 +73,21 @@ object AppModule {
                 .build()
         }
     }
+
+    @Singleton
+    @Provides
+    fun providesUnsplashPhotoDb(
+        @ApplicationContext appContext: Context
+    ): UnsplashRoomDb =
+        Room.databaseBuilder(
+            appContext,
+            UnsplashRoomDb::class.java,
+            "unsplashPhotos-db"
+        ).fallbackToDestructiveMigration().build()
+
+    @Singleton
+    @Provides
+    fun providesLocalDao(
+        unsplashDb: UnsplashRoomDb
+    ): UnsplashLocalDbDao = unsplashDb.getUnsplashLocalDbDao()
 }

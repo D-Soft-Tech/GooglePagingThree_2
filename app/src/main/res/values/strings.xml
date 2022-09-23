@@ -6,4 +6,7 @@
     <string name="retry">Retry</string>
     <string name="couldNotLoadData">Results could not be loaded</string>
     <string name="results_could_not_be_loaded">Results could not be loaded</string>
+    <string name="transacion_received">NetPos Transaction Notification!</string>
+    <string name="please_wait">Please wait...</string>
+    <string name="failed">Failed</string>
 </resources>

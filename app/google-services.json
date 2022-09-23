@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "692186989923",
+    "project_id": "masteringpagingthree-2",
+    "storage_bucket": "masteringpagingthree-2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692186989923:android:4f1d606b8bee6c29173f56",
+        "android_client_info": {
+          "package_name": "com.example.masteringpagingthree_2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "692186989923-mk1eisitbcp6fhkraf1eg6gnufq7j6un.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKIO9YqBi9rgh6vlfNfN09gjysZlTpBgk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "692186989923-mk1eisitbcp6fhkraf1eg6gnufq7j6un.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

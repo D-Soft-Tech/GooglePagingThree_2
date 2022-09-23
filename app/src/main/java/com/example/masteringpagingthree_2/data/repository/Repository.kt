@@ -1,8 +1,7 @@
-package com.example.masteringpagingthree_2.data.repository
+package com.example.masteringpagingthree_2.data.repository // ktlint-disable package-name
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
-import androidx.paging.liveData
 import com.example.masteringpagingthree_2.data.pagination.PagingSourceFactory
 import com.example.masteringpagingthree_2.data.pagination.UnsplashPagingSource
 import javax.inject.Inject
@@ -17,14 +16,14 @@ class Repository @Inject constructor() {
     fun getSearchResults(query: String) =
         Pager(
             config = PagingConfig(
-                pageSize = 30,
+                pageSize = 29,
                 maxSize = 100,
                 enablePlaceholders = false
             ),
             pagingSourceFactory = {
                 getPagingSource(query)
             }
-        ).liveData
+        ).flow
 
     private fun getPagingSource(query: String): UnsplashPagingSource {
         unsplashPagingSource = unsplashPagingSourceFactory.createPagingSource(query)
